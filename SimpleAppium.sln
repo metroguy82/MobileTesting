@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAppium", "SimpleAppium\SimpleAppium.csproj", "{C973EEC4-634C-431B-9179-4B184C67E499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumFirst", "SeleniumFirst\SeleniumFirst.csproj", "{FCCE8332-2414-4533-93A5-5FCEE4DC9D7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C973EEC4-634C-431B-9179-4B184C67E499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C973EEC4-634C-431B-9179-4B184C67E499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C973EEC4-634C-431B-9179-4B184C67E499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C973EEC4-634C-431B-9179-4B184C67E499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCCE8332-2414-4533-93A5-5FCEE4DC9D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCCE8332-2414-4533-93A5-5FCEE4DC9D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCCE8332-2414-4533-93A5-5FCEE4DC9D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCCE8332-2414-4533-93A5-5FCEE4DC9D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
