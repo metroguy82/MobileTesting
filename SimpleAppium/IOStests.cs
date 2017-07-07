@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumHelloWorld
 {
-    class Simulator
+    class Simulator 
     {
         public IWebDriver driver;
 
