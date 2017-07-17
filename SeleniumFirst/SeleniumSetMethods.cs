@@ -11,45 +11,64 @@ namespace SeleniumFirst
     public class SeleniumSetMethods
     {
         //Enter text inside text box
-        public static void EnterText(IWebDriver driver, string element, string value, string elementType)
+        public static void EnterText(string element, string value, PropertyType elementType)
         {
-            if (elementType == "Id")
+            if (elementType == PropertyType.Id)
             {
-                driver.FindElement(By.Id(element)).SendKeys(value);
+                PropertiesCollection.driver.FindElement(By.Id(element)).SendKeys(value);
             }
-            else if (elementType == "Name")
+            else if (elementType == PropertyType.Name)
             {
-                driver.FindElement(By.Name(element)).SendKeys(value);
+                PropertiesCollection.driver.FindElement(By.Name(element)).SendKeys(value);
             }
 
         }
 
         //Click Button , Checkbox, Option etc
-        public static void Click(IWebDriver driver, string element, string elementType)
+        public static void Click(string element, PropertyType elementType)
         {
-            if (elementType == "Id")
+            if (elementType == PropertyType.Id)
             {
-                driver.FindElement(By.Id(element)).Click();
+                PropertiesCollection.driver.FindElement(By.Id(element)).Click();
             }
-            else if (elementType == "Name")
+            else if (elementType == PropertyType.Name)
             {
-                driver.FindElement(By.Name(element)).Click();
+                PropertiesCollection.driver.FindElement(By.Name(element)).Click();
             }
         }
 
         //Selecting a Dropdown control
-        public static void SelectDropDown(IWebDriver driver, string element, string value, string elementType)
+        public static void SelectDropDown(string element, string value, PropertyType elementType)
         {
 
-            if (elementType == "Id")
+            if (elementType == PropertyType.Id)
             {
-                new SelectElement(driver.FindElement(By.Id(element))).SelectByText(value);
+                new SelectElement(PropertiesCollection.driver.FindElement(By.Id(element))).SelectByText(value);
             }
-            else if (elementType == "Name")
+            else if (elementType == PropertyType.Name)
             {
-                new SelectElement(driver.FindElement(By.Name(element))).SelectByText(value);
+                new SelectElement(PropertiesCollection.driver.FindElement(By.Name(element))).SelectByText(value);
             }
 
         }
+        //Refactore above methods
+        public static void EnterTextLatest(IWebElement element, string value)
+        {
+            element.SendKeys(value);
+        }
+
+
+        //Click Button , Checkbox, Option etc
+        public static void ClickLatest(IWebElement element)
+        {
+            element.Click();
+        }
+
+        //Selecting a Dropdown control
+        public static void SelectDropDownLatest(IWebElement element, string value)
+        {
+            new SelectElement(element).SelectByText(value);
+        }
     }
 }
+

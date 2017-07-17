@@ -14,25 +14,29 @@ namespace SeleniumFirst
     [TestFixture]
     class Program
     {
-        //For Chrome only
-        IWebDriver driver;
+        
+        //IWebDriver driver;
 
         [SetUp]
         public void Initialize()
         {
+            //For Chrome only
+            PropertiesCollection.driver = new ChromeDriver();
+            
             //To use Chrome browser
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver();
             //driver.Navigate().GoToUrl("http://www.google.com");
-            driver.Navigate().GoToUrl("http://www.executeautomation.com/demosite/index.html#");
+
+            PropertiesCollection.driver.Navigate().GoToUrl("http://www.executeautomation.com/demosite/index.html#");
             Console.WriteLine("Opened Test site");
 
         }
 
         //for google.com site testing
         [Test]
-        public void ExecuteTest()
+        public void ChromeTest1()
         {
-            IWebElement searchBox = driver.FindElement(By.Name("q"));
+            IWebElement searchBox = PropertiesCollection.driver.FindElement(By.Name("q"));
             searchBox.SendKeys("naveen tirumalasetty");
             searchBox.SendKeys(Keys.Return);
             //IWebElement searchButton = driver.FindElement(By.Name("btnK"));
@@ -41,25 +45,48 @@ namespace SeleniumFirst
         }
 
         [Test]
-        public void ExecuteTest1()
+        public void ChromeTest2()
         {
             //setting values for dropdown, text box and clicking button
-            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
-            SeleniumSetMethods.EnterText(driver, "Initial", "Naveen", "Name");
-            SeleniumSetMethods.Click(driver, "Save", "Name");
+            SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", PropertyType.Id);
+            SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
+            SeleniumSetMethods.Click("Save", PropertyType.Name);
 
             //getting values set previously for dropdown and text box
-            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown(driver, "TitleId", "Id"));
+            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
+            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
+        }
 
-            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText(driver, "Initial", "Name"));
+        [Test] //Page object Model (POM) test
+        public void POM_ChromeTest3()
+        {
+            //Initialize the page by calling its reference
+            PageObjectsEAsite page = new PageObjectsEAsite();
+            page.txtInitial.SendKeys("Naveen");
+            page.btnSave.Click();
+        }
+        [Test] //POM type 2
+        public void POM_Test4()
+        {
+            PageObjectsEAsite page1 = new PageObjectsEAsite();
+            page1.EnterAllDetails("Tirumalasetty","Naveen","Prasad");
 
+            //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
+        }
 
+        [Test] //POM type 3
+        public void POM_Test5()
+        {
+            PageObjectsEAsite page1 = new PageObjectsEAsite();
+            page1.EnterAllDetailsLatest("Tirumalasetty", "Naveen", "Prasad");
+
+            //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
         }
 
         [TearDown]
         public void CleanUp()
         {
-            driver.Close();
+            PropertiesCollection.driver.Close();
             Console.WriteLine("Closed chrome driver");
         }
     }

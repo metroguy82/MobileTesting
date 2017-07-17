@@ -17,37 +17,37 @@ namespace SeleniumFirst
         //To use IE browser
         private const string URL = "http://www.executeautomation.com/demosite/index.html#";
         private const string IE_DRIVER_PATH = @"C:\Users\tirumalasettyn\Desktop\Naveen\SELENIUM\IEDriverServer_Win32_3.4.0";
-
+        InternetExplorerOptions IEoptions;
         [SetUp]
         public void Initialize()
         {
-        }
-
-        [Test]
-        public void ExecuteTest3()
-        {
-            var IEoptions = new InternetExplorerOptions()
+            IEoptions = new InternetExplorerOptions()
             {
                 InitialBrowserUrl = URL,
                 IntroduceInstabilityByIgnoringProtectedModeSettings = true
             };
-            var driver = new InternetExplorerDriver(IE_DRIVER_PATH, IEoptions);
-            driver.Navigate();
+            PropertiesCollection.driver = new InternetExplorerDriver(IE_DRIVER_PATH, IEoptions);
+            PropertiesCollection.driver.Navigate();
+        }
 
+        [Test]
+        public void IE_Test1()
+        {
+            
             Console.WriteLine("Opened Test site");
 
             //setting values for dropdown, text box and clicking button
-            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
-            SeleniumSetMethods.EnterText(driver, "Initial", "Naveen", "Name");
-            SeleniumSetMethods.Click(driver, "Save", "Name");
+            SeleniumSetMethods.SelectDropDown("TitleId", "Mr.", PropertyType.Id);
+            SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
+            SeleniumSetMethods.Click("Save", PropertyType.Name);
 
             //getting values set previously for dropdown and text box
-            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown(driver, "TitleId", "Id"));
+            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
 
-            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText(driver, "Initial", "Name"));
+            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
 
-            driver.Close();
-            driver.Quit();
+            PropertiesCollection.driver.Close();
+            PropertiesCollection.driver.Quit();
             Console.WriteLine("Closed chrome driver");
         }
 
