@@ -61,13 +61,16 @@ namespace SeleniumFirst
         //}
 
         //Common function that Fill out all the details on the selected page by calling into one method that does fill all the given field values
-        public PageObjectsEAsite EnterAllDetails(string Initial, string FirstName, string MiddleName)
+        public PageObjectsEAsite EnterAllDetails(string title, string Initial, string FirstName, string MiddleName)
         {
+            //Select Ms. from title dropdown box
+            ddlTitleId.SelectDropDown(title);
+            
             //Type in Initial text and click Save button
             txtInitial.EnterText(Initial);
             txtFirstName.EnterText(FirstName);
             txtMiddleName.EnterText(MiddleName);
-
+            
             //click Save button
             btnSave.Click();
             return new PageObjectsEAsite();

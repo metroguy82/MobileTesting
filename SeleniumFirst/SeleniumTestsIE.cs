@@ -56,7 +56,7 @@ namespace SeleniumFirst
         {
             Console.WriteLine("Opened Test site");
             PageObjectsEAsite page1 = new PageObjectsEAsite();
-            page1.EnterAllDetails("Tirumalasetty", "Naveen", "Prasad");
+            page1.EnterAllDetails("Ms.","Tirumalasetty", "Naveen", "Prasad");
         }
 
 
@@ -64,7 +64,7 @@ namespace SeleniumFirst
         public void CleanUp()
         {
             PropertiesCollection.driver.Close();
-            Console.WriteLine("Closed chrome driver");
+            Console.WriteLine("Closed IE driver");
         }
     }
 }

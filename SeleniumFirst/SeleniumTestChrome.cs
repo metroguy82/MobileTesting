@@ -75,10 +75,10 @@ namespace SeleniumFirst
         //}
 
         [Test] //FINAL REFACTORED - Page Object Model test
-        public void POM_Test5()
+        public void Chrome_Test5()
         {
             PageObjectsEAsite page1 = new PageObjectsEAsite();
-            page1.EnterAllDetails("Tirumalasetty", "Naveen", "Prasad");
+            page1.EnterAllDetails("Ms.","Tirumalasetty", "Naveen", "Prasad");
 
             //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
         }
