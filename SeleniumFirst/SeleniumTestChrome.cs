@@ -44,18 +44,18 @@ namespace SeleniumFirst
             Console.WriteLine("Searched for Naveen Tirumalasetty");
         }
 
-        [Test]
-        public void ChromeTest2()
-        {
-            //setting values for dropdown, text box and clicking button
-            SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", PropertyType.Id);
-            SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
-            SeleniumSetMethods.Click("Save", PropertyType.Name);
+        //[Test]
+        //public void ChromeTest2()
+        //{
+        //    //setting values for dropdown, text box and clicking button
+        //    SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", PropertyType.Id);
+        //    SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
+        //    SeleniumSetMethods.Click("Save", PropertyType.Name);
 
-            //getting values set previously for dropdown and text box
-            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
-            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
-        }
+        //    //getting values set previously for dropdown and text box
+        //    Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
+        //    Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
+        //}
 
         [Test] //Page object Model (POM) test
         public void POM_ChromeTest3()
@@ -65,20 +65,20 @@ namespace SeleniumFirst
             page.txtInitial.SendKeys("Naveen");
             page.btnSave.Click();
         }
-        [Test] //POM type 2
-        public void POM_Test4()
-        {
-            PageObjectsEAsite page1 = new PageObjectsEAsite();
-            page1.EnterAllDetails("Tirumalasetty","Naveen","Prasad");
+        //[Test] //POM type 2
+        //public void POM_Test4()
+        //{
+        //    PageObjectsEAsite page1 = new PageObjectsEAsite();
+        //    page1.EnterAllDetails("Tirumalasetty","Naveen","Prasad");
 
-            //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
-        }
+        //    //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
+        //}
 
-        [Test] //POM type 3
+        [Test] //FINAL REFACTORED - Page Object Model test
         public void POM_Test5()
         {
             PageObjectsEAsite page1 = new PageObjectsEAsite();
-            page1.EnterAllDetailsLatest("Tirumalasetty", "Naveen", "Prasad");
+            page1.EnterAllDetails("Tirumalasetty", "Naveen", "Prasad");
 
             //if we are navigating to next page we use SecondPageClass page2=page1.EnterAllDetails("naveen");
         }

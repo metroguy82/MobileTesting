@@ -30,31 +30,41 @@ namespace SeleniumFirst
             PropertiesCollection.driver.Navigate();
         }
 
+        //[Test]
+        //public void IE_Test1()
+        //{
+
+        //    Console.WriteLine("Opened Test site");
+
+        //    //setting values for dropdown, text box and clicking button
+        //    SeleniumSetMethods.SelectDropDown("TitleId", "Mr.", PropertyType.Id);
+        //    SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
+        //    SeleniumSetMethods.Click("Save", PropertyType.Name);
+
+        //    //getting values set previously for dropdown and text box
+        //    Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
+
+        //    Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
+
+        //    PropertiesCollection.driver.Close();
+        //    PropertiesCollection.driver.Quit();
+        //    Console.WriteLine("Closed chrome driver");
+        //}
+
         [Test]
-        public void IE_Test1()
+        public void IE_Test2()
         {
-            
             Console.WriteLine("Opened Test site");
-
-            //setting values for dropdown, text box and clicking button
-            SeleniumSetMethods.SelectDropDown("TitleId", "Mr.", PropertyType.Id);
-            SeleniumSetMethods.EnterText("Initial", "Naveen", PropertyType.Name);
-            SeleniumSetMethods.Click("Save", PropertyType.Name);
-
-            //getting values set previously for dropdown and text box
-            Console.WriteLine("Value selected for Selected dropdown is " + SeleniumGetMethods.GetTextFromDropdown("TitleId", PropertyType.Id));
-
-            Console.WriteLine("Value entered for initial text box is " + SeleniumGetMethods.GetText("Initial", PropertyType.Name));
-
-            PropertiesCollection.driver.Close();
-            PropertiesCollection.driver.Quit();
-            Console.WriteLine("Closed chrome driver");
+            PageObjectsEAsite page1 = new PageObjectsEAsite();
+            page1.EnterAllDetails("Tirumalasetty", "Naveen", "Prasad");
         }
+
 
         [TearDown]
         public void CleanUp()
         {
-
+            PropertiesCollection.driver.Close();
+            Console.WriteLine("Closed chrome driver");
         }
     }
 }

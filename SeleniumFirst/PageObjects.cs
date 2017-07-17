@@ -34,31 +34,43 @@ namespace SeleniumFirst
         [FindsBy(How = How.Name, Using = "Save")]
         public IWebElement btnSave { get; set; }
 
+        ////Common function that Fill out all the details on the selected page by calling into one method that does fill all the given field values
+        //public PageObjectsEAsite EnterAllDetails(string Initial, string FirstName, string MiddleName)
+        //{
+        //    //Type in Initial text and click Save button
+        //    txtInitial.SendKeys(Initial);
+        //    txtFirstName.SendKeys(FirstName);
+        //    txtMiddleName.SendKeys(MiddleName);
+
+        //    //click Save button
+        //    btnSave.Click();
+        //    return new PageObjectsEAsite();
+        //}
+
+        ////SECOND REFACTOR: Common function that Fill out all the details on the selected page by calling into one method that does fill all the given field values
+        //public PageObjectsEAsite EnterAllDetailsLatest(string Initial, string FirstName, string MiddleName)
+        //{
+        //    //Type in Initial text and click Save button
+        //    SeleniumSetMethods.EnterTextLatest(txtInitial,Initial);
+        //    SeleniumSetMethods.EnterTextLatest(txtFirstName,FirstName);
+        //    SeleniumSetMethods.EnterTextLatest(txtMiddleName,MiddleName);
+
+        //    //click Save button
+        //    SeleniumSetMethods.ClickLatest(btnSave);
+        //    return new PageObjectsEAsite();
+        //}
+
         //Common function that Fill out all the details on the selected page by calling into one method that does fill all the given field values
         public PageObjectsEAsite EnterAllDetails(string Initial, string FirstName, string MiddleName)
         {
             //Type in Initial text and click Save button
-            txtInitial.SendKeys(Initial);
-            txtFirstName.SendKeys(FirstName);
-            txtMiddleName.SendKeys(MiddleName);
+            txtInitial.EnterText(Initial);
+            txtFirstName.EnterText(FirstName);
+            txtMiddleName.EnterText(MiddleName);
 
             //click Save button
             btnSave.Click();
             return new PageObjectsEAsite();
         }
-
-        //Common function that Fill out all the details on the selected page by calling into one method that does fill all the given field values
-        public PageObjectsEAsite EnterAllDetailsLatest(string Initial, string FirstName, string MiddleName)
-        {
-            //Type in Initial text and click Save button
-            SeleniumSetMethods.EnterTextLatest(txtInitial,Initial);
-            SeleniumSetMethods.EnterTextLatest(txtFirstName,FirstName);
-            SeleniumSetMethods.EnterTextLatest(txtMiddleName,MiddleName);
-
-            //click Save button
-            SeleniumSetMethods.ClickLatest(btnSave);
-            return new PageObjectsEAsite();
-        }
-
     }
 }
